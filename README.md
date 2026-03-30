@@ -84,6 +84,17 @@ sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 ```
 # 32 bit (for lutris)
+## Enable multilib
 ```
+sudo nano /etc/pacman.conf
+```
+uncommand the following line
+```
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+
+```
+sudo pacman -Syu
 sudo pacman -Syu lib32-nvidia-utils lib32-gnutls lib32-libx11 lib32-libpipewire
 ```
