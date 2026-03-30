@@ -18,8 +18,9 @@ echo $DISPLAY
   ~ sudo pacman -S xwayland-satellite 
   
   ~ then exit niri (Mod + Shift + E)
-  
-# Boot loader
+
+# Brightness Fix  
+## Boot loader
 : this will check for the real bootloader
 
 ``` sudo grep -rn "NVreg_EnableBacklightHandler" /boot /efi /etc 2>/dev/null ```
