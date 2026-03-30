@@ -98,3 +98,17 @@ Include = /etc/pacman.d/mirrorlist
 sudo pacman -Syu
 sudo pacman -Syu lib32-nvidia-utils lib32-gnutls lib32-libx11 lib32-libpipewire
 ```
+
+# Pinyin input
+```
+sudo pacman -S fcitx5
+sudo pacman -S --needed fcitx5-chinese-addons fcitx5-pinyin-zhwiki
+```
+
+# Black arch repo
+```
+curl -O https://blackarch.org/strap.sh
+chmod +x ./strap.sh
+sudo ./strap.sh
+sudo pacman -Syyu
+```
