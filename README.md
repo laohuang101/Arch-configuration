@@ -21,6 +21,10 @@ chsh -s /usr/bin/fish
 ```
 
 # Noctalia 
+## Install
+```
+yay -S noctalia-shell
+```
 ## Check path
 ```
 pacman -Q1 noctalia-bin
