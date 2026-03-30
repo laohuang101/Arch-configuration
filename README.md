@@ -8,16 +8,42 @@ cd yay
 makepkg -si
 ```
 
+# fonts
+```
+sudo pacman -S --needed ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji noto-fonts-cjk
+fc-cache -fv
+```
+
+# Change default shell
+```
+chsh -s /usr/bin/fish
+```
+
+# Noctalia 
+## Check path
+```
+pacman -Q1 noctalia-bin
+quickshell --path /etc/xdg/quickshell/noctalia-shell/shell.qml
+```
+## In niri/config.kdl
+```
+spawn-at-startup "quickshell" "--path" "/etc/xdg/quickshell/noctalia-shell/shell.qml"
+```
+
+
 # Java based app cant run issue
+```
 echo $DISPLAY
+```
 
 : if is empty 
 
-  ~ sudo pacman -S xorg-xwayland 
+```
+sudo pacman -S xorg-xwayland 
   
-  ~ sudo pacman -S xwayland-satellite 
-  
-  ~ then exit niri (Mod + Shift + E)
+sudo pacman -S xwayland-satellite 
+``` 
+then exit niri (Mod + Shift + E)
 
 # Brightness Fix  
 ## Boot loader
@@ -49,3 +75,11 @@ findmnt / -o UUID -n
 "Boot to single-user mode"    "root=UUID=<UUID> rw rootflags=subvol=@ zswap.enabled=0 rootfstype=btrfs loglevel=3 quiet nvidia-drm.modeset=1 acpi_backlight=native single"
 ```
 
+# Winboat
+## Install
+```
+yay -S winboat-bin
+sudo pacman -S --needed docker docker-compose freerdp
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+```
