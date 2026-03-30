@@ -1,6 +1,12 @@
 # Arch-configuration
 Arch configuration file 
 
+# install yay
+```
+sudo pacman -S --needed base-devel git
+cd yay
+makepkg -si
+```
 
 # Java based app cant run issue
 echo $DISPLAY
@@ -13,7 +19,7 @@ echo $DISPLAY
   
   ~ then exit niri (Mod + Shift + E)
   
-# Brightness
+# Boot loader
 : this will check for the real bootloader
 
 ``` sudo grep -rn "NVreg_EnableBacklightHandler" /boot /efi /etc 2>/dev/null ```
