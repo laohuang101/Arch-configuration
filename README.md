@@ -27,13 +27,19 @@ echo $DISPLAY
 
 : If is rEFInd
   !! Delete conflict file
-  - sudo rm /etc/modprobe.d/nvidia.conf
+  - ```
+    sudo rm /etc/modprobe.d/nvidia.conf
+    ```
 
   :: change the Real configuration
-  - sudo nano /boot/refind_linux.conf
+  - ```
+    sudo nano /boot/refind_linux.conf
+    ```
 
 : Get UUID
-``` findmnt / -o UUID -n ```
+``` 
+findmnt / -o UUID -n
+```
 
 : Rewrite the default configuration
 
