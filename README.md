@@ -83,3 +83,7 @@ sudo pacman -S --needed docker docker-compose freerdp
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 ```
+# 32 bit (for lutris)
+```
+sudo pacman -Syu lib32-nvidia-utils lib32-gnutls lib32-libx11 lib32-libpipewire
+```
