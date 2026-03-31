@@ -88,6 +88,28 @@ sudo pacman -S --needed docker docker-compose freerdp
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 ```
+
+# WinApps
+```
+sudo pacman -Syu --needed -y qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libguestfs ebtables iptables
+sudo usermod -aG libvirt,kvm $(whoami)
+sudo systemctl enable --now libvirtd
+sudo systemctl enable --now virtlogd
+mkdir -p ~/.config/libvirt
+echo 'uri_default = "qemu:///system"' > ~/.config/libvirt/libvirt.conf
+git clone https://github.com/winapps-org/winapps.git ~/.local/share/winapps
+cd ~/.local/share/winapps
+mkdir -p ~/.config/winapps
+nano ~/.config/winapps/winapps.conf
+```
+```
+RDP_USER="winapps"
+RDP_PASS="mypassword"
+WAFLAVOR="libvirt"
+GUEST_NAME="RDPWindows"
+LIBVIRT_URI="qemu:///system"
+```
+
 # 32 bit (for lutris)
 ## Enable multilib
 ```
