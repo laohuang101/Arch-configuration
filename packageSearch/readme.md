@@ -1,4 +1,4 @@
-# This script is for package listing (AUR & BlackArch packages)
+# This script is for package listing for install and uninstall (AUR & BlackArch packages)
 
 ## Dependency: 
 - Rofi (configuration from adi1090x theme-6 style-6)
