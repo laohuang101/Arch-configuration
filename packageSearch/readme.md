@@ -6,6 +6,7 @@
 sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-exiftool hexyl binwalk wl-clipboard xclip bat rz-cutter
 ```
 
+------
 ## Dependency: 
 - Rofi (configuration from adi1090x theme-6 style-6)
 - fzf
@@ -14,17 +15,17 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 
 ### Noctalia plugin 
 - Music Search (https://noctalia.dev/plugins/music-search/)
-  ! use with rofi-music.sh can search music using rofi
+  - use with rofi-music.sh can search music using rofi
   
-  ! ``` sudo pacman -S mpv yt-dlp jq ```
+  - ``` sudo pacman -S mpv yt-dlp jq ```
 
 ## File browser (decompress, open files using vscode, check meta data, hex value and find hiden files)
 <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/53572832-eeaa-4dc4-9a98-466a6f3f0a9d" />
 
 
-! use with rofi-browser.sh
+- use with rofi-browser.sh
 
-! ``` sudo pacman -S unzip tar p7zip code ```
+- ``` sudo pacman -S unzip tar p7zip code ```
 
 ### File meta data display
 - perl-image-exiftool
@@ -39,4 +40,4 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/8fcd7be1-c610-4cd2-9000-4a8c8e2d79b0" />
 
 - ``` yay -S binwalk wl-clipboard xclip ```
-  ! will show the result then optional to copy the result/ extract all/ extract selected
+- will show the result then optional to copy the result/ extract all/ extract selected
