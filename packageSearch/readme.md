@@ -6,5 +6,11 @@
 - kitty (or other terminal)
 - Black Arch repo
 
+### Noctalia plugin 
+- Music Search
+  ! use with rofi-music.sh can search music using rofi
+  ! ``` sudo pacman -S mpv yt-dlp jq ```
 
-
+### File browser (decompress and open files using vscode)
+! use with rofi-browser.sh
+! ``` sudo pacman -S unzip tar p7zip code ```
