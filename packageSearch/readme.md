@@ -14,8 +14,8 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 - Black Arch repo (optional)
 
 ### Noctalia plugin 
-- Music Search (https://noctalia.dev/plugins/music-search/)
-  - use with rofi-music.sh can search music using rofi
+- ``` Music Search ``` (https://noctalia.dev/plugins/music-search/)
+  - use with ``` rofi-music.sh ``` can search music using rofi
   
   - ``` sudo pacman -S mpv yt-dlp jq ```
 
@@ -23,7 +23,7 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/53572832-eeaa-4dc4-9a98-466a6f3f0a9d" />
 
 
-- use with rofi-browser.sh
+- use with ``` rofi-browser.sh ```
 
 - ``` sudo pacman -S unzip tar p7zip code ```
 
@@ -32,6 +32,8 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 - bat
 
 ### File HEX value display
+<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/7e6d06bd-06f2-4aa8-992f-3bda4b267e46" />
+
 - hexyl
 - rz-cutter
 - bat
