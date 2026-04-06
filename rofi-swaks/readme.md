@@ -3,6 +3,7 @@
 - Folder extract
 - File open (only office, vscode)
 - Install/ uninstall packages from AUR
+- Install uninstall packages from flatpak
 - Hidden file check and extract (binwalk)
 - Hex value check and edit (hexyl, cutter)
 - Music Player (Music Search plug in)
@@ -12,7 +13,7 @@
 
 ## Package required summary
 ```
-sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-exiftool hexyl binwalk wl-clipboard xclip bat rz-cutter onlyoffice-bin wireshark-qt wireshark-cli sleuthkit scalpel testdisk less bzip2
+sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-exiftool hexyl binwalk wl-clipboard xclip bat rz-cutter onlyoffice-bin wireshark-qt wireshark-cli sleuthkit scalpel testdisk less bzip2 flatpak
 ```
 
 ------
@@ -21,6 +22,12 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 - fzf
 - kitty (or other terminal)
 - Black Arch repo (optional)
+
+## Flatpak
+```
+sudo pacman -S flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
 
 ### Noctalia plugin 
 - ``` Music Search ``` (https://noctalia.dev/plugins/music-search/) 
