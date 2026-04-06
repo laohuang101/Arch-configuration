@@ -1,4 +1,5 @@
 THEME="$HOME/.config/rofi/launchers/type-6/style-6.rasi"
+THEME2="$HOME/.config/rofi/launchers/type-4/style-4.rasi"
 TARGET_DIR="$(realpath "${1:-$HOME}")"
 
 while true; do
@@ -16,18 +17,128 @@ while true; do
         
         menu_options="󰨞 Open with VSCode\n󰛒 Binwalk (Interactive)\n󱏒 View Hex (Hexyl)\n󰋽 View Meta Data"
         office_regex="\.(docx|doc|dotx|odt|rtf|txt|xlsx|xls|xltx|ods|csv|pptx|ppt|potx|odp|pdf)$"
+        pcap_regex="\.(pcap|pcapng|cap|erf|snoop|5vw|trc|raw|pklg)$"
+        img_regex="\.(img(\.gz)?|dd(\.bz2)?|raw|iso)$"
+        compress_regex="\.(zip|tar\.gz|tgz|tar\.xz|7z)$"
+        
+        if [[ "${clean_name,,}" =~ $pcap_regex ]]; then
+            menu_options="󰈸 Open with Wireshark\n󱚽 Quick Preview (TShark)\n$menu_options"
+        fi
 
         if [[ "$clean_name" =~ $office_regex ]]; then
             menu_options="󰏆 Open with OnlyOffice\n$menu_options"
         fi
 
-        if [[ "$full_path" =~ \.(zip|tar\.gz|tgz|tar\.xz|7z)$ ]]; then
+        if [[ "$full_path" =~ $compress_regex ]]; then
             menu_options="󰿗 Extract Archive\n$menu_options"
+        fi
+
+        if [[ "${clean_name,,}" =~ $img_regex ]]; then
+             menu_options="󰭟 Quick Extract & Analyze\n󰭟 Timeline\n Recover\n$menu_options"
         fi
 
         action=$(echo -e "$menu_options" | rofi -dmenu -i -p "Action for $clean_name" -theme "$THEME")
 
         case "$action" in
+            *Wireshark*)
+                notify-send "Wireshark" "Loading packet capture..."
+                wireshark "$full_path" > /dev/null 2>&1 &
+                exit 0
+                ;;
+            *TShark*)
+                kitty --hold sh -c "echo '--- Protocol Hierarchy ---'; tshark -r '$full_path' -z io,phs -q | bat -p; echo -e '\n--- Top 20 Packets ---'; tshark -r '$full_path' -c 20 | bat -p" &
+                exit 0
+                ;;
+            *Quick* | *Recover* | *Timeline*)
+                current_action="$action" 
+                if [[ "$full_path" == *.gz ]]; then
+                    img="${full_path%.gz}"
+                    [[ ! -f "$img" ]] && notify-send "Gzip" "Extracting..." && gunzip -fk "$full_path"
+                elif [[ "$full_path" == *.bz2 ]]; then
+                    img="${full_path%.bz2}"
+                    [[ ! -f "$img" ]] && notify-send "Bzip2" "Extracting..." && bunzip2 -fk "$full_path"
+                else
+                    img="$full_path"
+                fi
+
+                partition_list=$(mmls "$img" 2>/dev/null | grep -E "DOS|Win95|Linux|NTFS|FAT")
+                
+                if [[ -n "$partition_list" ]]; then
+                    selected_part=$(echo "$partition_list" | rofi -dmenu -p "Select Partition:" -i -theme "$THEME2")
+                    [[ -z "$selected_part" ]] && exit 0
+                    offset=$(echo "$selected_part" | awk '{print $3}' | tr -d '[:space:]')
+                    notify-send "Debug" "Offset captured: [$offset]"
+                    fs_opts="-o $offset"
+                else
+                    fs_opts=""
+                    offset="0"
+                    notify-send "Forensics" "No partition table, treating as raw."
+                fi
+
+                case "$current_action" in
+                    *Recover*)
+                        all_metadata=$(fls $fs_opts -r "$img" 2>/dev/null)
+                        
+                        if [[ -z "$all_metadata" ]]; then
+                            notify-send "Error" "No filesystem found at offset $offset."
+                            ans=$(echo -e "Try-Deep-Carve\nCancel" | rofi -dmenu -p "Action:" -theme "$THEME2")
+                            [[ "$ans" == *"Deep-Carve"* ]] && action="*Deep-Carve-Only*" || exit 0
+                        fi
+
+                        view_mode=$(echo -e "Show-All-Files-In-Partition" | rofi -dmenu -p "View Mode:" -theme "$THEME2")
+                        
+                        if [[ "$view_mode" == *"Show-All-Files-In-Partition"* ]]; then
+                            display_list=$(echo "$all_metadata" | grep -v "V/V\|v/v") 
+                        fi
+
+                        if [[ -z "$display_list" ]]; then
+                            notify-send "Recover" "No files found in this category."
+                            exit 0
+                        fi
+                        selected=$(echo "$display_list" | rofi -dmenu -multi-select -p "Select to Recover (Shift+Enter):" -theme "$THEME2")
+                        [[ -z "$selected" ]] && exit 0
+
+                        out_base="$(realpath .)/recovered_$(date +%s)_p$offset"
+                        mkdir -p "$out_base"
+
+                        echo "$selected" | while read -r line; do
+                            inode=$(echo "$line" | awk '{print $3}' | tr -d '[:space:]' | tr -d ':')
+                            fname=$(echo "$line" | cut -d':' -f2- | xargs | tr ' ' '_')
+                            [[ "$fname" == _* ]] && fname="recovered${fname}"
+                            
+                            icat $fs_opts "$img" "$inode" > "$out_base/$fname"
+                        done
+                        
+                        notify-send "Success" "Files extracted to $out_base"
+                        xdg-open "$out_base"
+                        ;;
+
+                    *Quick*|*Analyze*)
+                        list_file="${img}_p${offset}_filelist.txt"
+                        notify-send "Forensics" "Generating file list..."
+                        fls $fs_opts -r "$img" > "$list_file"
+                        if [ -s "$list_file" ]; then
+                            code "$list_file"
+                        else
+                            notify-send "Error" "List is empty."
+                        fi
+                        ;;
+
+                    *Timeline*)
+                        timeline_file="${img}_p${offset}_timeline.txt"
+                        body_file="${img}_p${offset}.body"
+                        notify-send "Timeline" "Generating MACB timeline..."
+                        fls $fs_opts -r -m / "$img" > "$body_file"
+                        mactime -b "$body_file" > "$timeline_file"
+                        kitty --title "Timeline" sh -c "less -Si '$timeline_file'" &
+                        ;;
+                    *)
+                        # This will trigger if the 'case' fails to match the action string
+                        notify-send "Debug Error" "Action '$current_action' did not match any case."
+                        ;;
+                esac
+                exit 0
+                ;;
             *Binwalk*)
                 raw_output=$(binwalk "$full_path")
                 
@@ -89,6 +200,7 @@ while true; do
                         *.zip) unzip -o "$full_path" -d "$TARGET_DIR" ;;
                         *.tar.*|*.tgz) tar -xf "$full_path" -C "$TARGET_DIR" ;;
                         *.7z) 7z x "$full_path" -o"$TARGET_DIR" ;;
+                        *.bz2) bunzip2 -fk "$TARGET_DIR" ;;
                     esac
                 ) && notify-send "Success" "Extracted $clean_name" || notify-send "Error" "Failed to extract $clean_name" &
                 exit 0
