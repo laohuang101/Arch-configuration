@@ -6,7 +6,7 @@
 - Hex value check and edit (hexyl, cutter)
 - Music Player (Music Search plug in)
 
-<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/310babec-f26e-416d-beae-1897f76ef1da" />
+
 
 ## Package required summary
 ```
@@ -27,9 +27,8 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
   
   - ``` sudo pacman -S mpv yt-dlp jq ```
 
-## File browser (decompress, open files using vscode, check meta data, hex value and find hiden files)
-<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/53572832-eeaa-4dc4-9a98-466a6f3f0a9d" />
-
+## File browser (extract, open files using vscode, only office (supported file only), check meta data, hex value and find hiden files)
+<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/a84cd7e4-ef3d-4f0b-8bdb-c18aac294473" />
 
 - use with ``` rofi-browser.sh ```
 
