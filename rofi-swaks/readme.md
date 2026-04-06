@@ -2,6 +2,7 @@
 ## Use for
 - Folder extract
 - File open (only office, vscode)
+- Install/ uninstall packages from AUR
 - Hidden file check and extract (binwalk)
 - Hex value check and edit (hexyl, cutter)
 - Music Player (Music Search plug in)
