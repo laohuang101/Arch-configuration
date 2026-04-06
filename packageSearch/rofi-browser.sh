@@ -99,11 +99,9 @@ while true; do
 
                 case "$hex_choice" in
                     *Hexyl*)
-                        # 修正了管道：hexyl 输出给内层的 bat 渲染，外层不需要再接 bat
                         kitty --hold sh -c "hexyl --color always '$full_path' | bat -p" &
                         ;;
                     *Cutter*)
-                        # Cutter 是图形化工具，直接后台启动即可
                         notify-send "Cutter" "Loading $clean_name for analysis..."
                         cutter "$full_path" > /dev/null 2>&1 &
                         ;;
