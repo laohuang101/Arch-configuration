@@ -15,6 +15,11 @@ while true; do
     elif [ -f "$full_path" ]; then
         
         menu_options="󰨞 Open with VSCode\n󰛒 Binwalk (Interactive)\n󱏒 View Hex (Hexyl)\n󰋽 View Meta Data"
+        office_regex="\.(docx|doc|dotx|odt|rtf|txt|xlsx|xls|xltx|ods|csv|pptx|ppt|potx|odp|pdf)$"
+
+        if [[ "$clean_name" =~ $office_regex ]]; then
+            menu_options="󰏆 Open with OnlyOffice\n$menu_options"
+        fi
 
         if [[ "$full_path" =~ \.(zip|tar\.gz|tgz|tar\.xz|7z)$ ]]; then
             menu_options="󰿗 Extract Archive\n$menu_options"
@@ -92,7 +97,10 @@ while true; do
                 code "$full_path" > /dev/null 2>&1 &
                 exit 0
                 ;;
-
+            *OnlyOffice*)
+                desktopeditors "$full_path" > /dev/null 2>&1 &
+                exit 0
+                ;;
             *Hex*)
                 hex_choice=$(echo -e "󱏒 Hexyl (Quick Preview)\n󰘦 Cutter (Reverse Engineering)\n󰨞 VSCode Hex (Editor)" | \
                     rofi -dmenu -i -p "Select Hex Tool" -theme "$THEME")
