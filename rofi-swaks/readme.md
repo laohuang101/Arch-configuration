@@ -16,7 +16,7 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 
 ------
 ## Dependency: 
-- Rofi (configuration from adi1090x theme-6 style-6)
+- Rofi (configuration from adi1090x theme-6 style-6 and theme-4 style-4 for disk forensic)
 - fzf
 - kitty (or other terminal)
 - Black Arch repo (optional)
