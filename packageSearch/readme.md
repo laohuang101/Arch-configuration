@@ -1,9 +1,16 @@
-# This script is for package listing for install and uninstall (AUR & BlackArch packages), can works with Music Search plugin, build with a file browser to open file in vscode and decompress folder
+# Simple File/ Package Manager/ Music player (Noctalia Plugin)
+## Use for
+- Folder extract
+- File open (only office, vscode)
+- Hidden file check and extract (binwalk)
+- Hex value check and edit (hexyl, cutter)
+- Music Player (Music Search plug in)
+
 <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/310babec-f26e-416d-beae-1897f76ef1da" />
 
 ## Package required summary
 ```
-sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-exiftool hexyl binwalk wl-clipboard xclip bat rz-cutter
+sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-exiftool hexyl binwalk wl-clipboard xclip bat rz-cutter onlyoffice-bin 
 ```
 
 ------
@@ -14,8 +21,9 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 - Black Arch repo (optional)
 
 ### Noctalia plugin 
-- ``` Music Search ``` (https://noctalia.dev/plugins/music-search/)
+- ``` Music Search ``` (https://noctalia.dev/plugins/music-search/) 
   - use with ``` rofi-music.sh ``` can search music using rofi
+  - default using noctalia build in app launcher, use the script to change using rofi
   
   - ``` sudo pacman -S mpv yt-dlp jq ```
 
