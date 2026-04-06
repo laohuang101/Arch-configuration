@@ -48,7 +48,7 @@ sudo yay -S rofi fzf kitty fish mpv yt-dlp jq unzip tar p7zip code perl-image-ex
 - rz-cutter
 - bat
 
-### Hiden file extract
+### Hidden file extract
 <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/8fcd7be1-c610-4cd2-9000-4a8c8e2d79b0" />
 
 
