@@ -185,6 +185,38 @@ sudo pacman -S fcitx5
 sudo pacman -S --needed fcitx5-chinese-addons fcitx5-pinyin-zhwiki
 ```
 
+# Cloudflare WARP
+- Download and connect
+```
+yay -S cloudflare-warp-bin
+sudo systemctl enable --now warp-svc
+warp-cli registration new
+warp-cli connect
+```
+
+- Disconnect
+```
+warp-cli disconnect
+```
+
+- Check Status
+```
+ip addr
+warp-cli status
+ip route show
+curl ipconfig.me
+```
+
+- Disable ivp6 (optional if WARP still not running)
+```
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+```
+
+- Changing to tunnel mode
+```
+warp-cli mode warp
+```
+
 # Black arch repo
 ```
 curl -O https://blackarch.org/strap.sh
