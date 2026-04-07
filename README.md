@@ -217,6 +217,11 @@ sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
 warp-cli mode warp
 ```
 
+- Changing to 1.1.1.1
+```
+warp-cli mode dns
+```
+
 # Black arch repo
 ```
 curl -O https://blackarch.org/strap.sh
