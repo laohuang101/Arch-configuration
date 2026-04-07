@@ -233,3 +233,7 @@ sudo pacman -Syyu
 # rofi-swaks usage
 - Have some scripts that can run on rofi
 - Detail stated in https://github.com/laohuang101/Arch-configuration/blob/main/rofi-swaks/readme.md
+
+# Foot Printing
+- Tools required
+  ``` sudo pacman whois bind  ```
