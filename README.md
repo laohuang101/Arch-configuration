@@ -222,6 +222,11 @@ warp-cli mode warp
 warp-cli mode dns
 ```
 
+- Checking WARP connection point
+```
+curl -s https://www.cloudflare.com/cdn-cgi/trace | grep colo
+```
+
 # Black arch repo
 ```
 curl -O https://blackarch.org/strap.sh
