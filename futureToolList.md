@@ -1,3 +1,4 @@
+## Tools from Pentest-Windows (https://github.com/arch3rPro/Pentest-Windows?tab=readme-ov-file) 
 ### ⚓ Common Software
 
 ### 🔗 Maye Launcher (for windows)
@@ -632,7 +633,7 @@
 | Clash-Verge      | scoop tool   | Efficient desktop proxy software, designed for managing and enhancing Clash configurations |
 
 
-### Tools frrom other's repo
+## Tools from HexStrike-Ai (https://github.com/0x4m4/hexstrike-ai)
 
 <details>
 <summary><b>🔍 Network Reconnaissance & Scanning (25+ Tools)</b></summary>
