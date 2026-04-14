@@ -117,3 +117,8 @@ sudo pacman -Syyu
 # Foot Printing
 - Tools required
   ``` sudo pacman whois bind  ```
+
+# uninstall and cleanup from yay
+```
+yay -Rsc <name>
+```
