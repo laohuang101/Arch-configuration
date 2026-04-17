@@ -122,3 +122,8 @@ sudo pacman -Syyu
 ```
 yay -Rsc <name>
 ```
+
+# iflow-cli
+```
+bash -c "$(curl -fsSL https://cloud.iflow.cn/iflow-cli/install.sh)"
+```
