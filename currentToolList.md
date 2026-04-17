@@ -35,6 +35,9 @@
 # Network Tunneling
 - warp
 
+# AI
+- iflow-cli
+
 # CTF
 ## Forensic
 - WireShark
