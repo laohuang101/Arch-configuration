@@ -25,6 +25,11 @@ curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download
 goose update
 ```
 
+## Uninstall
+```
+npm uninstall -g @block/goose
+```
+
 # iflow-cli
 ```
 bash -c "$(curl -fsSL https://cloud.iflow.cn/iflow-cli/install.sh)"
