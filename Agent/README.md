@@ -14,6 +14,21 @@ sudo pacman -S nvidia nvidia-utils cuda
 | CTF (pcap or pwntools stuff) | Llama 3.1 / 4 (8b) | ``` ollama run llama3.1:8b ``` |
 | Forensic | Qwen2.5-Coder (7b) | ``` ollama run qwen2.5-coder:7b ``` |
 
+# llama.cpp
+
+## Installation
+```
+yay -S llama.cpp
+```
+
+## Model
+
+- Check from ``` Hugging Face ``` (https://huggingface.co/models)
+
+| Usage | Model | Command | Notes |
+| ------ | ------ | ------ | ------ |
+| Agentic AI | Nemotron 120B | ```llama-cli -hf unsloth/...``` | <ul><li>`Q4_K` needs ~64GB RAM</li><li>`Q2_K` needs ~32GB RAM</li><li>Testing with 16GB + SWAP</li></ul> |
+
 # Goose
 ## Installation
 ```
