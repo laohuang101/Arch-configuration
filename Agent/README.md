@@ -28,6 +28,9 @@ goose update
 ## Uninstall
 ```
 npm uninstall -g @block/goose
+rm /home/loke/.local/bin/goose
+rm -rf ~/.config/goose
+rm -rf ~/.local/share/goose
 ```
 
 # iflow-cli
