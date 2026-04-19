@@ -28,6 +28,7 @@ yay -S llama.cpp
 | Usage | Model | Command | Notes |
 | ------ | ------ | ------ | ------ |
 | Agentic AI | Nemotron 120B | ```llama-cli -hf unsloth/NVIDIA-Nemotron-3-Super-120B-A12B-GGUF:UD-Q4_K_M``` | <ul><li>`Q4_K` needs ~64GB RAM</li><li>`Q2_K` needs ~32GB RAM</li><li>Testing with 16GB + SWAP</li></ul> |
+| Light Weight Agent | Qwen3.6-35B-A3B-GGUF | `llama-cli -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M` |   |
 
 # Goose
 ## Installation
