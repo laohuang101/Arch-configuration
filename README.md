@@ -122,3 +122,8 @@ sudo pacman -Syyu
 ```
 yay -Rsc <name>
 ```
+
+# Remove unused dependency
+```
+sudo pacman -Rns $(pacman -Qdtq)
+```
