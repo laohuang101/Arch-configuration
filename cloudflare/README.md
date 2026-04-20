@@ -17,7 +17,7 @@ warp-cli disconnect
 ip addr
 warp-cli status
 ip route show
-curl ipconfig.me
+curl -L ipconfig.me
 ```
 
 - Disable ivp6 (optional if WARP still not running)
