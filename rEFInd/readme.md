@@ -13,7 +13,7 @@ menuentry "Arch Linux" {
     icon     /EFI/refind/themes/RONBM/icons/os_arch.png
     loader   /vmlinuz-linux
     initrd   /initramfs-linux.img
-    options  "root=UUID=<UUID> rw rootflags=subvol=@ zswap.enabled=0 rootfstype=btrfs loglevel=3 quiet nvidia-drm.modeset=1 acpi_backlight=native"
+    options  "root=UUID=<UUID> rw rootflags=subvol=@ zswap.enabled=0 rootfstype=btrfs loglevel=3 quiet nvidia-drm.modeset=1 acpi_backlight=native ipv6.disable=1"
 }
 ```
 Uncomment & Change
