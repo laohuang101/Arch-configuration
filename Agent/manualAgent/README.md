@@ -1,3 +1,8 @@
+# ai
+- fish command ``` ai <file (optional)> <prompt>```
+- run using `ollama` can check out ollama free model here: https://ollama.com/search
+- no need complex setup just copy the file to your fish configuraton folder
+ 
 # Dependency
 ```
 sudo pacman -S --needed tesseract tesseract-data-eng perl-image-exiftool binwalk ffmpeg poppler wireshark-cli pandoc binutils ollama
