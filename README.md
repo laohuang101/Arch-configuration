@@ -134,6 +134,15 @@ sudo faillock --user <name> --reset
 ```
 
 # Pulling beta kernel (currently pull for 7.0)
+
 ```
 yay -S linux-mainline
+```
+
+If get gpg key: server receive fail error
+- bypass gpg key
+
+
+```
+yay -S linux-mainline --mflags "--skippgpcheck"
 ```
