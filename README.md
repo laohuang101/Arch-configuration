@@ -132,3 +132,8 @@ sudo pacman -Rns $(pacman -Qdtq)
 ```
 sudo faillock --user <name> --reset
 ```
+
+# Pulling beta kernel (currently pull for 7.0)
+```
+yay -S linux-mainline
+```
