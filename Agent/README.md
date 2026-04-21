@@ -50,7 +50,13 @@ rm -rf ~/.local/share/goose
 ```
 
 # iflow-cli
+## Installation
 ```
 bash -c "$(curl -fsSL https://cloud.iflow.cn/iflow-cli/install.sh)"
 ```
 
+## Uninstall
+```
+which iflow
+sudo rm -rf <path>
+```
