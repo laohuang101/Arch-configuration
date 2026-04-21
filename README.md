@@ -127,3 +127,8 @@ yay -Rsc <name>
 ```
 sudo pacman -Rns $(pacman -Qdtq)
 ```
+
+# Reset password wrong count
+```
+sudo faillock --user <name> --reset
+```
