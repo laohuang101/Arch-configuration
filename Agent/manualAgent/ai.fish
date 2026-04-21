@@ -55,9 +55,8 @@ function ai
         set task $argv[1..-1]
     end
 
-    set system_prompt "You are a Markdown expert and technical analyzer. 
-    RULE: Output RAW MARKDOWN content ONLY. 
-    RULE: NO conversational filler. NO introductory phrases."
+    set system_prompt "You are a technical analyzer. 
+    RULE: Explain in detailed unless is stated"
 
     set full_prompt "SYSTEM: $system_prompt
     RECENT_CONVERSATION: $recent_history
