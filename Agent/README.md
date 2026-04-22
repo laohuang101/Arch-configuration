@@ -14,6 +14,7 @@ sudo pacman -S nvidia nvidia-utils cuda
 | CTF (pcap or pwntools stuff) | Llama 3.1 / 4 (8b) | ``` ollama run llama3.1:8b ``` |
 | Forensic | Qwen2.5-Coder (7b) | ``` ollama run qwen2.5-coder:7b ``` |
 | new qwen model (need 36gb++RAM) | qwen3.6:35b | ```ollama pull qwen3.6:35b ``` |
+| ollama could model | kimi 2.6 | ```ollama launch claude --model kimi-k2.6:cloud``` |
 
 # llama.cpp
 
