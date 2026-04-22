@@ -4,7 +4,7 @@
 # Browser
 - chromium
 - Tor
-- zen
+- zen (will be very heavy and sometimes laggy)
 
 # Input
 - fcitx5
