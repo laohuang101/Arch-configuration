@@ -43,7 +43,7 @@ ollama pull qwen2.5-coder:7b
 | binwalk |  |
 | ffmpeg |  |
 | poppler |  |
-| wireshark-cli |  |
+| wireshark-cli | To analyze `.pcap` files |
 | pandoc |  |
 | binutils |  |
-| ollama |  |
+| ollama | pulling local model can use `llama.cpp` or others |
