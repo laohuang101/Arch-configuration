@@ -14,7 +14,8 @@ sudo systemctl disable --now docker.socket
 
 ## Only run when needed and off when done
 ```
-
+sudo systemctl start docker
+sudo systemctl stop docker
 ```
 
 # WinApps
