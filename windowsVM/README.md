@@ -6,6 +6,16 @@ sudo pacman -S --needed docker docker-compose freerdp
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 ```
+## Disable docker so that it would run at startup
+```
+sudo systemctl disable --now docker.service
+sudo systemctl disable --now docker.socket
+```
+
+## Only run when needed and off when done
+```
+
+```
 
 # WinApps
 ## Insatll
