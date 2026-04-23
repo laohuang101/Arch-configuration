@@ -7,6 +7,20 @@ sudo usermod -aG libvirt $USER
 reboot
 ```
 
+## If WARP is enabled
+### Check the kali ip address (usually is the eth0)
+```
+ip a
+```
+
+### Tell WARP to ignore the IP from kali
+```
+warp-cli tunnel ip add <ip address>
+warp-cli disconnect
+warp-cli connect
+reboot
+```
+
 # Winboat
 ## Install
 ```
