@@ -1,3 +1,12 @@
+# KVM
+## Installation
+```
+sudo pacman -S qemu-full virt-manager virt-viewer dnsmasq bridge-utils libvirt ovmf swtpm
+sudo systemctl enable --now libvirtd
+sudo usermod -aG libvirt $USER
+reboot
+```
+
 # Winboat
 ## Install
 ```
