@@ -102,6 +102,11 @@ sudo pacman -S fcitx5
 sudo pacman -S --needed fcitx5-chinese-addons fcitx5-pinyin-zhwiki
 ```
 
+# Fixing brave cant do pinyin input
+```
+brave --ozone-platform-hint=auto
+```
+
 # Black arch repo
 ```
 curl -O https://blackarch.org/strap.sh
