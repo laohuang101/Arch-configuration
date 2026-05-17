@@ -377,7 +377,7 @@ binds {
     // `niri msg action do-something`.
     
     //spawn chormium
-    Mod+B { spawn "zen-browser"; }
+    Mod+B { spawn "brave"; }
 
     Mod+N { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin" "togglePanel" "notes-scratchpad"; }
 
